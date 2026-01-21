@@ -1,0 +1,106 @@
+.navbar {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* LOGO */
+.navbar .logo {
+  width: 200px;
+  height: auto;
+}
+
+/* MENU */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  color: rgb(157, 74, 44);
+  font-size: 18px;
+  cursor: pointer;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* RIGHT SIDE */
+.navbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar button {
+  background: transparent;
+  font-size: 16px;
+  color: rgb(157, 74, 44);
+  border-radius: 3rem;
+  padding: 10px 15px;
+  border: 1px solid rgb(157, 74, 44);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar button:hover {
+  background-color: bisque;
+  font-weight: 500;
+}
+
+.navbar-menu li {
+  position: relative;
+}
+
+.navbar-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+/*
+  Eg:
+  <li> width = 100px (parent)
+  underline width = 60px (child)
+  * left: 50% ->  Move underline’s left edge to 50px (still not centered)
+  * transform: translateX(-50%) scaleX(0) -> Move underline left by 50% of its own width 
+  50px(parent)- 30px(child) = 20 (centered)
+*/
+  width: 60%;
+  height: 4px;
+  background-color: rgb(157, 74, 44);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-menu li.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.nav-icon {
+  font-size: 22px;
+  color: rgb(157, 74, 44);
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+  color: rgb(120, 50, 30);
+}
+
+.navbar-search-icon {
+  position: relative;
+}
+
+/* Notification dot */
+.navbar-search-icon .dot {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  background-color: brown;
+  border-radius: 50%;
+}
