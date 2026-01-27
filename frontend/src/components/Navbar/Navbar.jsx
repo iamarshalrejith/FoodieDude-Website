@@ -4,7 +4,7 @@ import { assets } from "../../assets/frontend_assets/assets";
 import { FaSearch, FaShoppingBasket } from "react-icons/fa";
 import {Link} from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("Home");
   return (
     <div className="navbar">
@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="dot"></div>
         </div>
 
-        <button>Sign in</button>
+        <button onClick={()=>setShowLogin(true)}>Sign in</button>
       </div>
     </div>
   );
