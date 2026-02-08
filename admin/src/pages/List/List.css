@@ -1,0 +1,112 @@
+.list {
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.add {
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Heading */
+.list > p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Table wrapper */
+.list-table {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Common row style */
+.list-table-format {
+  display: grid;
+  grid-template-columns: 80px 1.5fr 1fr 1fr 0.5fr;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  border-bottom: 1px solid #eaeaea;
+  background-color: #fff;
+}
+
+/* Title row */
+.list-table-format.title {
+  background-color: #f3f3f3;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Remove last border */
+.list-table-format:last-child {
+  border-bottom: none;
+}
+
+/* Image */
+.list-table-format img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Text */
+.list-table-format p,
+.list-table-format b {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Price */
+.list-table-format p:nth-child(4) {
+  font-weight: 600;
+}
+
+/* Action (X) */
+.list-table-format p:last-child {
+  color: #e74c3c;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.list-table-format p:last-child:hover {
+  color: #c0392b;
+  transform: scale(1.2);
+}
+
+/* Row hover */
+.list-table-format:not(.title):hover {
+  background-color: #fafafa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .list-table-format {
+    grid-template-columns: 60px 1fr 1fr;
+    row-gap: 8px;
+  }
+
+  .list-table-format b:nth-child(3),
+  .list-table-format b:nth-child(4),
+  .list-table-format b:nth-child(5),
+  .list-table-format p:nth-child(3),
+  .list-table-format p:nth-child(4),
+  .list-table-format p:nth-child(5) {
+    display: none;
+  }
+}

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./Add.css";
 import { assets } from "../../assets/admin_assets/assets";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-const Add = () => {
-  const url = "http://localhost:4000";
+const Add = ({url}) => {
+  
 
   const [image, setImage] = useState(null);
   const [data, setData] = useState({
@@ -46,7 +47,7 @@ const Add = () => {
       );
 
       console.log("Success:", response.data);
-      alert("Product added successfully!");
+      toast.success(response.data.message)
 
       // Reset form
       setData({
@@ -59,7 +60,7 @@ const Add = () => {
 
     } catch (error) {
       console.error("Error adding product:", error);
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
