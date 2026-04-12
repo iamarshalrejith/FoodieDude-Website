@@ -10,10 +10,11 @@ const Navbar = ({ setShowLogin }) => {
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
 
   const navigate = useNavigate();
+
   const logout = () => {
     localStorage.removeItem("token");
-    setToken("")
-    navigate("/")
+    setToken("");
+    navigate("/");
   };
 
   return (
@@ -44,7 +45,6 @@ const Navbar = ({ setShowLogin }) => {
         >
           Mobile App
         </a>
-
         <a
           href="#footer"
           onClick={() => setMenu("Contact-Us")}
@@ -55,23 +55,22 @@ const Navbar = ({ setShowLogin }) => {
       </ul>
 
       <div className="navbar-right">
-        {/* Search Icon */}
         <FaSearch className="nav-icon" />
 
-        {/* Basket Icon */}
         <div className="navbar-search-icon">
           <Link to="/cart">
             <FaShoppingBasket className="nav-icon" />
             <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
           </Link>
         </div>
+
         {!token ? (
           <button onClick={() => setShowLogin(true)}>Sign in</button>
         ) : (
           <div className="navbar-profile">
             <img src={assets.profile_icon} alt="profileIcon" />
             <ul className="nav-profile-dropdown">
-              <li>
+              <li onClick={() => navigate("/myorders")}>
                 <img src={assets.bag_icon} alt="" />
                 <p>Orders</p>
               </li>
