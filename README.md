@@ -58,7 +58,7 @@ FoodieDude-Website-main/
 ### 1. Clone the repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/iamarshalrejith/FoodieDude-Website/
 cd FoodieDude-Website-main
 ```
 
